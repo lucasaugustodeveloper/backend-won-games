@@ -1,0 +1,28 @@
+{
+  "name": "strapi-plugin-repositories",
+  "version": "0.0.0",
+  "description": "A list of my repository in Lucas Augusto.",
+  "strapi": {
+    "name": "Repositories",
+    "icon": "code",
+    "description": "A list of my repository in Lucas Augusto."
+  },
+  "dependencies": {},
+  "author": {
+    "name": "Lucas Augusto",
+    "email": "lucas.augusto5061@gmail.com",
+    "url": "https://github.com/laugustofrontend"
+  },
+  "maintainers": [
+    {
+      "name": "Lucas Augusto",
+      "email": "lucas.augusto5061@gmail.com",
+      "url": "https://github.com/laugustofrontend"
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
