@@ -1652,6 +1652,11 @@
   dependencies:
     "@types/koa" "*"
 
+"@types/lodash@^4.14.165":
+  version "4.14.172"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.172.tgz#aad774c28e7bfd7a67de25408e03ee5a8c3d028a"
+  integrity sha512-/BHF5HAx3em7/KkzVKm3LrsD6HZAXuXO1AJZQ3cRRBZj4oHZDviWPYu0aEplAqDFNHZPW6d3G7KN+ONcCCC7pw==
+
 "@types/long@^4.0.0":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.1.tgz#459c65fa1867dafe6a8f322c4c51695663cc55e9"
@@ -6729,7 +6734,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash-es@^4.17.11, lodash-es@^4.17.21:
+lodash-es@^4.17.11, lodash-es@^4.17.15, lodash-es@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
@@ -6793,11 +6798,6 @@ lodash.xorby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.xorby/-/lodash.xorby-4.7.0.tgz#9c19a6f9f063a6eb53dd03c1b6871799801463d7"
   integrity sha1-nBmm+fBjputT3QPBtocXmYAUY9c=
-
-lodash@4.17.20:
-  version "4.17.20"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
-  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 lodash@4.17.21, lodash@^4.1.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.4:
   version "4.17.21"
@@ -7353,6 +7353,11 @@ nano-time@1.0.0:
   integrity sha1-sFVPaa2J4i0JB/ehKwmTpdlhN+8=
   dependencies:
     big-integer "^1.6.16"
+
+nanoclone@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
+  integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
 nanoid@^3.1.23:
   version "3.1.23"
@@ -8365,7 +8370,7 @@ property-expr@^1.5.0:
   resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-1.5.1.tgz#22e8706894a0c8e28d58735804f6ba3a3673314f"
   integrity sha512-CGuc0VUTGthpJXL36ydB6jnbyOf/rAHFvmVrJlH+Rg0DqqLFQGAP6hIaxD/G0OAmBJPhXDHuEJigrp0e0wFV6g==
 
-property-expr@^2.0.2:
+property-expr@^2.0.2, property-expr@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.4.tgz#37b925478e58965031bb612ec5b3260f8241e910"
   integrity sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
@@ -10328,15 +10333,15 @@ strapi-plugin-graphql@3.6.3:
     pluralize "^8.0.0"
     strapi-utils "3.6.3"
 
-strapi-plugin-i18n@3.6.3:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/strapi-plugin-i18n/-/strapi-plugin-i18n-3.6.3.tgz#63f7eddc5f49744038e446295889517641e361d9"
-  integrity sha512-qb0WghVEZ+kOC52wwXGyH90j/DsO4UXI6MSARdGtyNpLv2trCvFHflsYFX/Q1IVVMTnEGy9KI25skFAMjAJxfA==
+strapi-plugin-i18n@3.6.8:
+  version "3.6.8"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-i18n/-/strapi-plugin-i18n-3.6.8.tgz#2e4d7f96923defa3525204846ccafbb9f15d1b11"
+  integrity sha512-741hMHEJQ+Yji5TPxTkw32PZnfp692LjeQjPzROWIPHD8JZ3nG7xpbaF/cUsV86jOCveeBV76oHutI5qBWn3rA==
   dependencies:
-    lodash "4.17.20"
+    lodash "4.17.21"
     p-map "4.0.0"
     pluralize "8.0.0"
-    strapi-utils "3.6.3"
+    strapi-utils "3.6.8"
 
 strapi-plugin-upload@3.6.3:
   version "3.6.3"
@@ -10429,6 +10434,18 @@ strapi-utils@3.6.3:
     pino "^4.7.1"
     pluralize "^8.0.0"
     yup "^0.28.2"
+
+strapi-utils@3.6.8:
+  version "3.6.8"
+  resolved "https://registry.yarnpkg.com/strapi-utils/-/strapi-utils-3.6.8.tgz#699bcd080117df526dfb7935115e47e1877d888a"
+  integrity sha512-6tKHfkjrY3AfSv8sAg77Ix7meMttyd2efODY2dOKkKgdXDugdNwbl/AavjWL0xfywZaCNhxkNLLN/2Wvx8pO+w==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "^2.19.0"
+    lodash "4.17.21"
+    pino "^4.7.1"
+    pluralize "^8.0.0"
+    yup "^0.32.9"
 
 strapi@3.6.3:
   version "3.6.3"
@@ -11695,6 +11712,19 @@ yup@^0.28.2:
     lodash-es "^4.17.11"
     property-expr "^2.0.2"
     synchronous-promise "^2.0.10"
+    toposort "^2.0.2"
+
+yup@^0.32.9:
+  version "0.32.9"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.9.tgz#9367bec6b1b0e39211ecbca598702e106019d872"
+  integrity sha512-Ci1qN+i2H0XpY7syDQ0k5zKQ/DoxO0LzPg8PAR/X4Mpj6DqaeCoIYEEjDJwhArh3Fa7GWbQQVDZKeXYlSH4JMg==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    "@types/lodash" "^4.14.165"
+    lodash "^4.17.20"
+    lodash-es "^4.17.15"
+    nanoclone "^0.2.1"
+    property-expr "^2.0.4"
     toposort "^2.0.2"
 
 zen-observable-ts@^0.8.21:
