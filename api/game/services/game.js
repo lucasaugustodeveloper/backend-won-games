@@ -8,19 +8,38 @@
 const axios = require('axios');
 const slugify = require('slugify');
 
+const timeOut = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const Exception = (e) => ({
+  e,
+  data: e.data && e.data.errors && e.data.errors,
+});
+
 const getGameInfo = async (slug) => {
-  const jsdom = require('jsdom');
-  const { JSDOM } = jsdom;
-  const body = await axios.get(`https://www.gog.com/game/${slug}`);
-  const dom = new JSDOM(body.data);
+  try {
+    const jsdom = require('jsdom');
+    const { JSDOM } = jsdom;
+    const body = await axios.get(`https://www.gog.com/game/${slug}`);
+    const dom = new JSDOM(body.data);
 
-  const description = dom.window.document.querySelector('[content-summary-section-id="description"]');
+    const ratingElement = dom.window.document.querySelector('.age-restrictions__icon use');
 
-  return {
-    rating: 'BR0',
-    description: description.innerHTML,
-    short_description: description.textContent.slice(0, 160),
-  };
+    const description = dom.window.document.querySelector('[content-summary-section-id="description"]');
+
+    return {
+      rating: ratingElement
+        ? ratingElement
+          .getAttribute('xlink:href')
+          .replace(/_/g, '-')
+          .replace(/[^\w-]+/g, '')
+          .replace(/-/g, '')
+        : 'BR0',
+      description: description.innerHTML,
+      short_description: description.textContent.slice(0, 160),
+    };
+  }
+  catch (e) {
+    console.log('getGameInfo => ', Exception(e));
+  }
 };
 
 const getByName = async (name, entityName) => {
@@ -68,28 +87,33 @@ const createManyToMany = async (products) => {
 };
 
 const setImage = async ({ image, game, field = 'cover' }) => {
-  const url = `https:${image}_bg_crop_1680x655.jpg`;
-  const { data } = await axios.get(url, { responseType: 'arraybuffer' });
-  const buffer = Buffer.from(data, 'base64');
+  try {
+    const url = `https:${image}_bg_crop_1680x655.jpg`;
+    const { data } = await axios.get(url, { responseType: 'arraybuffer' });
+    const buffer = Buffer.from(data, 'base64');
 
-  const FormData = require('form-data');
-  const formData = new FormData();
+    const FormData = require('form-data');
+    const formData = new FormData();
 
-  formData.append('refId', game.id);
-  formData.append('ref', 'game');
-  formData.append('field', field);
-  formData.append('files', buffer, { filename: `${game.slug}.jpg` });
+    formData.append('refId', game.id);
+    formData.append('ref', 'game');
+    formData.append('field', field);
+    formData.append('files', buffer, { filename: `${game.slug}.jpg` });
 
-  console.log(`Uploading ${field} image: ${game.slug}.jpg`);
+    console.log(`Uploading ${field} image: ${game.slug}.jpg`);
 
-  await axios.get({
-    method: 'POST',
-    url: `http://${strapi.config.host}:${strapi.config.port}/upload`,
-    data: formData,
-    headers: {
-      "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-    },
-  });
+    await axios({
+      method: 'POST',
+      url: `http://${strapi.config.host}:${strapi.config.port}/upload`,
+      data: formData,
+      headers: {
+        "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+      },
+    });
+  }
+  catch (e) {
+    console.log('setImage => ', Exception(e));
+  }
 };
 
 const createGame = async (products) => {
@@ -121,6 +145,13 @@ const createGame = async (products) => {
         });
 
         await setImage({ image: product.image, game });
+        await Promise.all(
+          product.gallery
+            .slice(0, 5)
+            .map(url => setImage({ image: url, game, field: 'gallery' }))
+        );
+
+        await timeOut(1000);
 
         return game;
       }
@@ -130,15 +161,14 @@ const createGame = async (products) => {
 
 module.exports = {
   populate: async (params) => {
+    // const { page = 1, sort = 'popularity' } = params;
     const gogApiUrl = `https://www.gog.com/games/ajax/filtered?mediaType=game&page=1&sort=popularity`;
 
     const { data: { products = [] } } = await axios.get(gogApiUrl);
 
     await createManyToMany(products);
-    await createGame([products[13], products[15]]);
+    await createGame([products[2]]);
 
-    // console.log(new Date(
-    //   Number(products[5].globalReleaseDate) * 1000
-    // ).toISOString());
+    // console.log('products => ', await getGameInfo(products[2].slug));
   },
 };
