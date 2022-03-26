@@ -3201,10 +3201,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-ckeditor5-build-strapi-wysiwyg@^1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/ckeditor5-build-strapi-wysiwyg/-/ckeditor5-build-strapi-wysiwyg-1.14.0.tgz#02eca459e212aed13b35f1be56f93d5927c3b6f0"
-  integrity sha512-1NipbQm3ngtpIej+9iIxpGrqv86yJ8ZCcw1hLs4S5Y+dbuD2Hux1ztKW4QSfbsiaFgiFCbZlneNIApQPCMGVkA==
+ckeditor5-build-strapi-wysiwyg@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/ckeditor5-build-strapi-wysiwyg/-/ckeditor5-build-strapi-wysiwyg-1.15.0.tgz#8fa46bfa204e1196988f30b1ed3de3fb3ff68c13"
+  integrity sha512-BJQ4F1fj2E407jAfrZmEwVtovzuR09Yh38/9/9gHfVXb6jdO1b0tB6Hh8ry0tl/fRb/Lx1ekDjHV+15ptiGGOA==
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -10301,13 +10301,13 @@ strapi-helper-plugin@3.6.8:
     styled-components "^5.2.3"
     whatwg-fetch "^3.6.2"
 
-strapi-plugin-ckeditor5@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/strapi-plugin-ckeditor5/-/strapi-plugin-ckeditor5-1.14.0.tgz#008b0cb091e5f2f7e36287b5099ba0abd33123ca"
-  integrity sha512-5HedxIOfapFSKzVLCnU8Z3rqsyJf1Zuiz1JO8HefacjR/5xgQclUWzrwWULdaYkxRxyo8k8z76fs4OoDNdmNEQ==
+strapi-plugin-ckeditor5@1.15.1:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-ckeditor5/-/strapi-plugin-ckeditor5-1.15.1.tgz#2fe0c9d68c4f7d05375834ee15faa52a4ad85353"
+  integrity sha512-WRZ51KvJ/c5nMlRLvFIMKeY0WvJnFYzCDRZ8uBBufoCeJ31GFK7pwsDChrmTL9vP05EouP98ROLDoPFFDH+v3w==
   dependencies:
     "@ckeditor/ckeditor5-react" "^3.0.3"
-    ckeditor5-build-strapi-wysiwyg "^1.14.0"
+    ckeditor5-build-strapi-wysiwyg "^1.15.0"
 
 strapi-plugin-content-manager@3.6.8:
   version "3.6.8"
