@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "@strapi/provider-upload-aws-s3": "^4.8.2",
     "form-data": "4.0.0",
     "jsdom": "19.0.0",
     "knex": "0.95.15",
